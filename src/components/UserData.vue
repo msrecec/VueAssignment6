@@ -11,7 +11,7 @@ styling of your choice
     </div>
     <div>
       <label>Age</label>
-      <input type="number" v-model="enteredAge" min="0" max="150" />
+      <input type="text" v-model="enteredAge" />
     </div>
     <div>
       <button>Add User</button>
@@ -25,12 +25,16 @@ export default {
   data() {
     return {
       enteredName: '',
-      enteredAge: 0,
+      enteredAge: '',
     };
   },
   methods: {
     submitData() {
-      this.$emit('add-user', this.enteredName, this.enteredAge);
+      this.$emit(
+        'add-user',
+        this.enteredName,
+        isNaN(this.enteredAge) ? 0 : parseInt(this.enteredAge)
+      );
     },
   },
 };

@@ -1,4 +1,4 @@
-# vue-first-app
+# vue-assignment-6
 
 ## Project setup
 ```
